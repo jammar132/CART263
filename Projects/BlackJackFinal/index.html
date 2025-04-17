@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blackjack Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Login Screen -->
+        <div id="loginScreen" class="screen">
+            <div class="login-container">
+                <h2>Login / Register</h2>
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label>Username</label>
+                        <input type="text" id="username" placeholder="Enter username">
+                    </div>
+                    <div class="form-group">
+                        <label>PIN (4 numbers)</label>
+                        <input type="password" id="pin" maxlength="4" placeholder="Enter 4-digit PIN">
+                    </div>
+                    <p id="loginError" class="error"></p>
+                    <button type="submit">Enter Casino</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Main Game Container -->
+        <div id="gameContainer" class="screen hidden">
+            <!-- Back Navigation -->
+            <div id="backNavigation" class="nav-button hidden">
+                <button id="navBackBtn">←</button>
+            </div>
+
+            <!-- Volume Control -->
+            <div id="volumeControl" class="control-button">
+                <button id="volumeBtn">🔊</button>
+                <div id="volumeSlider" class="slider-container hidden">
+                    <input type="range" min="0" max="100" value="50">
+                </div>
+            </div>
+
+            <!-- Settings Control -->
+            <div id="settingsControl" class="control-button">
+                <button id="settingsBtn">⚙️</button>
+                <div id="settingsMenu" class="settings-container hidden">
+                    <h3>Game Settings</h3>
+                    <div class="setting-group">
+                        <label>Table Color</label>
+                        <div class="color-buttons">
+                            <button class="color-btn green" data-color="green"></button>
+                            <button class="color-btn red" data-color="red"></button>
+                        </div>
+                    </div>
+                    <div class="setting-group">
+                        <label>Card Color</label>
+                        <div class="color-buttons">
+                            <button class="color-btn red" data-color="red"></button>
+                            <button class="color-btn blue" data-color="blue"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Welcome Screen -->
+            <div id="welcomeScreen" class="screen">
+                <h1>Welcome to Blackjack</h1>
+                <div class="button-container">
+                    <button id="playButton" class="gold-button">Play Now</button>
+                    <button id="rulesButton" class="white-button">View Rules</button>
+                </div>
+            </div>
+
+            <!-- Rules Screen -->
+            <div id="rulesScreen" class="screen hidden">
+                <div class="rules-screen">
+                    <div class="rules-container">
+                        <h2>Blackjack Rules</h2>
+                        <section>
+                            <h3>Objective</h3>
+                            <p>Beat the dealer's hand without going over 21.</p>
+                        </section>
+                        <section>
+                            <h3>Card Values</h3>
+                            <ul>
+                                <li>Face cards (Jack, Queen, King) = 10</li>
+                                <li>Ace = 1 or 11</li>
+                                <li>All other cards = face value</li>
+                            </ul>
+                        </section>
+                        <section>
+                            <h3>Gameplay</h3>
+                            <ol>
+                                <li>Place your bet</li>
+                                <li>Receive two cards</li>
+                                <li>Choose to Hit or Stand</li>
+                                <li>Try to get closer to 21 than the dealer</li>
+                            </ol>
+                        </section>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Game Screen -->
+            <div id="gameScreen" class="screen hidden">
+                <div class="game-table">
+                    <div id="dealerHand" class="hand"></div>
+                    <div id="playerHand" class="hand"></div>
+                    <div id="gameControls" class="controls"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
